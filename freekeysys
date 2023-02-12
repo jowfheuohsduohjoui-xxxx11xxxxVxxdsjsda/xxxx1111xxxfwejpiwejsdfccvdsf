@@ -1,0 +1,89 @@
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local KeyFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextBox")
+local Check = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local key = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+KeyFrame.Name = "KeyFrame"
+KeyFrame.Parent = ScreenGui
+KeyFrame.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+KeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KeyFrame.BorderSizePixel = 0
+KeyFrame.Position = UDim2.new(0.306296319, 0, 0.303947359, 0)
+KeyFrame.Size = UDim2.new(0.387407422, 0, 0.392105252, 0)
+
+UICorner.Parent = KeyFrame
+
+Title.Name = "Title"
+Title.Parent = KeyFrame
+Title.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.310462385, 0, 0.0295654908, 0)
+Title.Size = UDim2.new(0, 199, 0, 47)
+Title.Font = Enum.Font.LuckiestGuy
+Title.PlaceholderColor3 = Color3.fromRGB(135, 135, 135)
+Title.Text = "Codexus Hub Free Key System"
+Title.TextColor3 = Color3.fromRGB(34, 47, 231)
+Title.TextSize = 33.000
+
+Check.Name = "Check"
+Check.Parent = KeyFrame
+Check.BackgroundColor3 = Color3.fromRGB(34, 47, 231)
+Check.BackgroundTransparency = 0.020
+Check.BorderSizePixel = 0
+Check.Position = UDim2.new(0.310462415, 0, 0.768509388, 0)
+Check.Size = UDim2.new(0, 200, 0, 50)
+Check.Font = Enum.Font.LuckiestGuy
+Check.Text = "Enter"
+Check.TextColor3 = Color3.fromRGB(255, 255, 255)
+Check.TextSize = 34.000
+
+UICorner_2.Parent = Check
+
+key.Name = "key"
+key.Parent = KeyFrame
+key.BackgroundColor3 = Color3.fromRGB(34, 47, 231)
+key.Position = UDim2.new(0.0688336492, 0, 0.436241597, 0)
+key.Size = UDim2.new(0, 451, 0, 58)
+key.Font = Enum.Font.SourceSans
+key.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+key.PlaceholderText = "[ Insert Key ]"
+key.Text = ""
+key.TextColor3 = Color3.fromRGB(255, 255, 255)
+key.TextSize = 33.000
+
+UICorner_3.Parent = key
+
+-- Scripts:
+
+local function TCBNLCY_fake_script() -- Check.LocalScript 
+	local script = Instance.new('LocalScript', Check)
+
+	local key = script.Parent.Parent.key
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if key.Text == "Key" then --key is today's key!
+			script.Parent.Parent.Visible = false
+		elseif key.Text == "" then
+			key.Text = ""
+		else
+			key.Text = "Incorrect key, try again please."
+			wait(1)
+			key.Text = ""
+		end
+	end)
+	
+end
+coroutine.wrap(TCBNLCY_fake_script)()
